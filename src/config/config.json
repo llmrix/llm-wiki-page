@@ -1,0 +1,26 @@
+{
+  "profile": {
+    "name": "LLM Wiki",
+    "bio": "A comprehensive knowledge base for large language models and AI.",
+    "buyMeCoffeeUrl": "https://www.buymeacoffee.com/llmrix"
+  },
+  "site": {
+    "title": "LLM Wiki",
+    "subtitle": "Large Language Model Knowledge Base",
+    "copyright": "© 2026 LLM Wiki. All Rights Reserved.",
+    "license": {
+      "name": "CC BY-NC-SA 3.0 CN",
+      "url": "#"
+    }
+  },
+  "social": {
+    "twitter": "https://twitter.com/llmrix",
+    "facebook": "https://facebook.com/llmrix",
+    "website": "https://linkedin.com/in/llmrix",
+    "github": "https://github.com/llmrix"
+  },
+  "ui": {
+    "postsPerPage": 10,
+    "defaultTheme": "light"
+  }
+}

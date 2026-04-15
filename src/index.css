@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;700&family=Bebas+Neue&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --color-primary: #1a1a1a;
+  --color-accent: #111827;
+  /* Original black accent */
+  --color-background: #f4f7f6;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f8fafc;
+  --color-text-main: #374151;
+  --color-text-title: #111827;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-brand-bg: #111827;
+  /* Black for light mode */
+  --color-brand-text: #ffffff;
+}
+
+.dark {
+  --color-primary: #f8fafc;
+  --color-accent: #f8fafc;
+  --color-background: #020617;
+  --color-surface: #0f172a;
+  --color-surface-hover: #1e293b;
+  --color-text-main: #cbd5e1;
+  --color-text-title: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-border: #1e293b;
+  --color-brand-bg: #ee802f;
+  /* RSS Orange for dark mode */
+  --color-brand-text: #ffffff;
+}
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Noto Serif SC", serif;
+  --font-display: "Bebas Neue", sans-serif;
+
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-text-main: var(--color-text-main);
+  --color-text-title: var(--color-text-title);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
+  --color-brand-bg: var(--color-brand-bg);
+  --color-brand-text: var(--color-brand-text);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-main font-sans antialiased;
+  }
+}
+
+@layer components {
+  .layout-wrapper {
+    @apply flex max-w-[1100px] mx-auto gap-4 px-4 pt-0;
+  }
+
+  .sidebar {
+    @apply w-[240px] flex-shrink-0 flex flex-col gap-0 pt-0;
+  }
+
+  .sidebar-section+.sidebar-section {
+    @apply mt-3;
+  }
+
+  .sidebar-header {
+    @apply bg-brand-bg text-brand-text pt-12 pb-10 px-4 text-center transition-all duration-300 border-b border-border relative;
+
+    /* Special highlight for dark mode orange */
+    .dark & {
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .sidebar-title {
+    @apply text-[32px] font-display tracking-[0.05em] mb-2 cursor-pointer hover:opacity-80 transition-all active:scale-[0.98];
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar-subtitle {
+    @apply text-[13px] opacity-80 font-light;
+  }
+
+  .sidebar-section {
+    @apply bg-surface py-4;
+  }
+
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-8 py-3 text-[13px] text-text-main hover:bg-surface-hover transition-all cursor-pointer relative;
+  }
+
+  .sidebar-nav-item.active {
+    @apply bg-surface-hover text-text-title font-medium;
+  }
+
+  .sidebar-nav-item.active::after {
+    @apply content-[''] absolute left-0 top-0 bottom-0 w-[3px] bg-accent;
+  }
+
+  .author-name {
+    @apply text-[16px] font-bold text-text-title text-center mb-1;
+  }
+
+  .author-bio {
+    @apply text-[13px] text-text-muted text-center mb-6;
+  }
+
+  .author-stats {
+    @apply flex justify-center mb-6;
+  }
+
+  .stat-item {
+    @apply flex flex-col items-center px-4 border-r border-border last:border-r-0;
+  }
+
+  .stat-count {
+    @apply text-[18px] font-bold text-text-title leading-tight;
+  }
+
+  .stat-label {
+    @apply text-[12px] text-text-muted;
+  }
+
+  .rss-section {
+    @apply border-y border-dotted border-border py-3 my-6 text-center mx-4;
+  }
+
+  .rss-link {
+    @apply flex items-center justify-center gap-2 text-[#fc6423] font-bold text-[14px] hover:opacity-80 transition-all;
+  }
+
+  .main-content {
+    @apply flex-1 min-h-screen mt-0;
+  }
+
+  .content-card {
+    @apply bg-surface p-10;
+  }
+
+  .post-item {
+    @apply bg-surface p-10;
+  }
+
+  .post-eof {
+    @apply hidden;
+  }
+
+  .post-header {
+    @apply text-center mb-16;
+  }
+
+  .post-title {
+    @apply font-sans font-bold text-[26px] leading-[1.5] tracking-tight text-text-title hover:text-accent transition-all cursor-pointer mb-4 block;
+  }
+
+  .post-meta {
+    @apply text-[12px] text-text-muted flex justify-center items-center gap-4;
+  }
+
+  .post-meta-item {
+    @apply flex items-center gap-1;
+  }
+
+  .read-more-btn {
+    @apply block mx-auto mt-10 px-6 py-2 border border-accent text-accent text-[14px] hover:bg-accent hover:text-surface transition-all;
+  }
+
+  /* Markdown via @tailwindcss/typography */
+  .markdown-body {
+    @apply prose max-w-none
+      prose-headings:text-text-title prose-headings:font-bold
+      prose-h1:text-[1.6rem] prose-h2:text-[1.3rem] prose-h3:text-[1.1rem] prose-h4:text-[1rem]
+      prose-p:text-text-main prose-p:leading-[1.8]
+      prose-a:text-text-title prose-a:no-underline prose-a:border-b prose-a:border-border hover:prose-a:border-accent
+      prose-strong:text-text-title
+      prose-blockquote:border-border prose-blockquote:text-text-muted prose-blockquote:not-italic
+      prose-code:before:content-none prose-code:after:content-none
+      prose-pre:bg-[#1e1e1e] prose-pre:rounded-lg prose-pre:p-0 prose-pre:overflow-hidden
+      prose-hr:border-border
+      prose-img:rounded-lg;
+  }
+
+  .markdown-body blockquote {
+    quotes: none;
+  }
+
+  /* Table */
+  .markdown-body table {
+    @apply w-full text-[13px] border-collapse rounded-lg overflow-hidden my-6;
+    border: 1px solid var(--color-border);
+  }
+
+  .markdown-body thead {
+    @apply bg-surface-hover;
+  }
+
+  .markdown-body th {
+    @apply text-text-title font-semibold text-left px-4 py-2.5 text-[12px] uppercase tracking-wide;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .markdown-body td {
+    @apply text-text-main px-4 py-2.5;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .markdown-body tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .markdown-body tbody tr:hover {
+    @apply bg-surface-hover;
+  }
+
+  /* inline code only — not inside pre */
+  .markdown-body :not(pre) > code {
+    @apply bg-surface-hover text-text-title border border-border rounded px-1.5 py-0.5 text-[0.85em];
+    display: inline !important;
+    width: auto !important;
+    white-space: nowrap;
+  }
+
+  /* pre > code should be transparent, color handled by SyntaxHighlighter or prose-pre */
+  .markdown-body pre > code {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    color: #d4d4d4;
+    display: block !important;
+    width: 100%;
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  /* Override SyntaxHighlighter injected padding */
+  .markdown-body pre > pre {
+    margin: 0 !important;
+    padding: 0.85rem 1rem !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+
+  .dark .markdown-body {
+    @apply prose-invert prose-pre:bg-[#1e1e1e];
+  }
+
+  .dark .markdown-body :not(pre) > code {
+    @apply bg-surface-hover text-text-title border-border;
+  }
+
+  @media (max-width: 1024px) {
+    .layout-wrapper {
+      @apply flex-col;
+    }
+
+    .sidebar {
+      @apply w-full;
+    }
+  }
+}

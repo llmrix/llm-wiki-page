@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; }
+  </style>
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0f1a"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a855f7"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f97316"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ef4444"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="880" fill="url(#bg-grad)"/>
+  <!-- HEADER -->
+  <rect x="40" y="18" width="1320" height="62" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="700" y="42" text-anchor="middle" font-size="18" font-weight="700" fill="#e2e8f0" letter-spacing="1">LLM-Wiki Knowledge Engine Architecture</text>
+  <text x="700" y="65" text-anchor="middle" font-size="12" fill="#94a3b8">"LLM writes and maintains wiki; humans read and ask questions." — Karpathy-style: Knowledge synthesized at ingest time, not query time</text>
+  <!-- RIGHT SIDEBAR -->
+  <rect x="1160" y="95" width="200" height="148" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="1170" y="114" font-size="10" fill="#475569" font-weight="700" letter-spacing="2">NODE TYPES</text>
+  <circle cx="1174" cy="132" r="7" fill="#4A90D9"/>
+  <text x="1187" y="136" font-size="11" fill="#94a3b8">source  — source docs</text>
+  <circle cx="1174" cy="158" r="7" fill="#E8A838"/>
+  <text x="1187" y="162" font-size="11" fill="#94a3b8">entity  — entity pages</text>
+  <circle cx="1174" cy="184" r="7" fill="#5BA85A"/>
+  <text x="1187" y="188" font-size="11" fill="#94a3b8">concept — concept pages</text>
+  <circle cx="1174" cy="210" r="7" fill="#9B59B6"/>
+  <text x="1187" y="214" font-size="11" fill="#94a3b8">synthesis — query archive</text>
+  <rect x="1160" y="258" width="200" height="118" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="1260" y="276" text-anchor="middle" font-size="10" fill="#475569" font-weight="700" letter-spacing="1">vs TRADITIONAL RAG</text>
+  <text x="1240" y="294" text-anchor="middle" font-size="10" fill="#10b981" font-weight="700">Wiki</text>
+  <text x="1320" y="294" text-anchor="middle" font-size="10" fill="#ef4444" font-weight="700">RAG</text>
+  <text x="1170" y="312" font-size="10" fill="#64748b">Synthesis</text>
+  <text x="1240" y="312" text-anchor="middle" font-size="10" fill="#10b981">Ingest ✓</text>
+  <text x="1320" y="312" text-anchor="middle" font-size="10" fill="#ef4444">Query</text>
+  <text x="1170" y="331" font-size="10" fill="#64748b">Growth</text>
+  <text x="1240" y="331" text-anchor="middle" font-size="10" fill="#10b981">Compound ✓</text>
+  <text x="1320" y="331" text-anchor="middle" font-size="10" fill="#ef4444">Linear</text>
+  <text x="1170" y="350" font-size="10" fill="#64748b">Conflicts</text>
+  <text x="1240" y="350" text-anchor="middle" font-size="10" fill="#10b981">Proactive ✓</text>
+  <text x="1320" y="350" text-anchor="middle" font-size="10" fill="#ef4444">Reactive</text>
+  <text x="1170" y="369" font-size="10" fill="#64748b">Readability</text>
+  <text x="1240" y="369" text-anchor="middle" font-size="10" fill="#10b981">Human ✓</text>
+  <text x="1320" y="369" text-anchor="middle" font-size="10" fill="#ef4444">Fragmented</text>
+  <!-- INPUT LAYER -->
+  <rect x="55" y="95" width="1090" height="85" rx="6" fill="#0a0a18" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="68" y="112" font-size="10" fill="#475569" font-weight="700" letter-spacing="2">MULTI-MODAL INPUT</text>
+  <rect x="70" y="118" width="166" height="52" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="153" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#3b82f6" letter-spacing="0.5">PDF</text>
+  <text x="153" y="157" text-anchor="middle" font-size="11" fill="#94a3b8">pdfplumber</text>
+  <rect x="250" y="118" width="166" height="52" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="333" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#3b82f6" letter-spacing="0.5">DOCX</text>
+  <text x="333" y="157" text-anchor="middle" font-size="11" fill="#94a3b8">python-docx</text>
+  <rect x="430" y="118" width="166" height="52" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="513" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#7c3aed" letter-spacing="0.5">PPTX</text>
+  <text x="513" y="157" text-anchor="middle" font-size="11" fill="#94a3b8">pptx skill</text>
+  <rect x="610" y="118" width="166" height="52" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+  <text x="693" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#10b981" letter-spacing="0.5">XLSX/CSV</text>
+  <text x="693" y="157" text-anchor="middle" font-size="11" fill="#94a3b8">pandas</text>
+  <rect x="790" y="118" width="166" height="52" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+  <text x="873" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#10b981" letter-spacing="0.5">MD/TXT/JSON</text>
+  <text x="873" y="157" text-anchor="middle" font-size="11" fill="#94a3b8">Read tool</text>
+  <rect x="970" y="118" width="166" height="52" rx="6" fill="#1c1917" stroke="#f97316" stroke-width="1.5"/>
+  <text x="1053" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#f97316" letter-spacing="0.5">PNG/JPG</text>
+  <text x="1053" y="157" text-anchor="middle" font-size="11" fill="#94a3b8">Claude Vision</text>
+  <!-- COMMAND LAYER -->
+  <rect x="55" y="198" width="1090" height="78" rx="6" fill="#0a0a18" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="68" y="215" font-size="10" fill="#475569" font-weight="700" letter-spacing="2">CLI COMMANDS</text>
+  <rect x="70" y="220" width="166" height="48" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="153" y="239" text-anchor="middle" font-size="12" font-weight="700" fill="#7c3aed">wiki-config</text>
+  <text x="153" y="257" text-anchor="middle" font-size="11" fill="#94a3b8">workspace config</text>
+  <rect x="250" y="220" width="166" height="48" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="333" y="239" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">wiki-input</text>
+  <text x="333" y="257" text-anchor="middle" font-size="11" fill="#94a3b8">OSS/S3/HTTP</text>
+  <rect x="430" y="220" width="166" height="48" rx="6" fill="#1c1917" stroke="#f97316" stroke-width="2.5"/>
+  <text x="513" y="239" text-anchor="middle" font-size="12" font-weight="700" fill="#f97316">wiki-ingest</text>
+  <text x="513" y="257" text-anchor="middle" font-size="11" fill="#94a3b8">multimodal ingest ★</text>
+  <rect x="610" y="220" width="166" height="48" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+  <text x="693" y="239" text-anchor="middle" font-size="12" font-weight="700" fill="#10b981">wiki-query</text>
+  <text x="693" y="257" text-anchor="middle" font-size="11" fill="#94a3b8">knowledge retrieval</text>
+  <rect x="790" y="220" width="166" height="48" rx="6" fill="#1a0a00" stroke="#eab308" stroke-width="1.5"/>
+  <text x="873" y="239" text-anchor="middle" font-size="12" font-weight="700" fill="#eab308">wiki-lint</text>
+  <text x="873" y="257" text-anchor="middle" font-size="11" fill="#94a3b8">health check</text>
+  <rect x="970" y="220" width="166" height="48" rx="6" fill="#1e1b4b" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="1053" y="239" text-anchor="middle" font-size="12" font-weight="700" fill="#a855f7">wiki-graph</text>
+  <text x="1053" y="257" text-anchor="middle" font-size="11" fill="#94a3b8">knowledge graph</text>
+  <line x1="153" y1="170" x2="153" y2="218" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <line x1="333" y1="170" x2="333" y2="218" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <line x1="513" y1="170" x2="513" y2="218" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <line x1="693" y1="170" x2="693" y2="218" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <line x1="873" y1="170" x2="873" y2="218" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <line x1="1053" y1="170" x2="1053" y2="218" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <!-- INGEST ENGINE -->
+  <rect x="55" y="290" width="1090" height="300" rx="8" fill="#0a0a18" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="55" y="290" width="1090" height="22" rx="8" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="55" y="303" width="1090" height="9" fill="#1c1917"/>
+  <text x="600" y="306" text-anchor="middle" font-size="12" font-weight="700" fill="#f97316" letter-spacing="2">INGEST CORE ENGINE — 10-STEP PIPELINE</text>
+  <rect x="68" y="322" width="198" height="58" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="68" y="322" width="28" height="58" rx="6" fill="#7c3aed"/>
+  <rect x="84" y="322" width="12" height="58" fill="#7c3aed"/>
+  <text x="82" y="356" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S0</text>
+  <text x="168" y="344" text-anchor="middle" font-size="12" font-weight="700" fill="#7c3aed">Determine WIKI_ROOT</text>
+  <text x="168" y="362" text-anchor="middle" font-size="11" fill="#94a3b8">@path → config → cwd</text>
+  <rect x="284" y="322" width="198" height="58" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="284" y="322" width="28" height="58" rx="6" fill="#3b82f6"/>
+  <rect x="300" y="322" width="12" height="58" fill="#3b82f6"/>
+  <text x="298" y="356" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S1</text>
+  <text x="384" y="344" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">Dedup Check</text>
+  <text x="384" y="362" text-anchor="middle" font-size="11" fill="#94a3b8">log.md match</text>
+  <rect x="500" y="322" width="198" height="58" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="500" y="322" width="28" height="58" rx="6" fill="#10b981"/>
+  <rect x="516" y="322" width="12" height="58" fill="#10b981"/>
+  <text x="514" y="356" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S2</text>
+  <text x="600" y="344" text-anchor="middle" font-size="12" font-weight="700" fill="#10b981">Multimodal Extract</text>
+  <text x="600" y="362" text-anchor="middle" font-size="11" fill="#94a3b8">→ Markdown</text>
+  <rect x="716" y="322" width="198" height="58" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="716" y="322" width="28" height="58" rx="6" fill="#3b82f6"/>
+  <rect x="732" y="322" width="12" height="58" fill="#3b82f6"/>
+  <text x="730" y="356" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S3</text>
+  <text x="816" y="344" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">Read Context</text>
+  <text x="816" y="362" text-anchor="middle" font-size="11" fill="#94a3b8">index + overview</text>
+  <rect x="932" y="322" width="198" height="58" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="932" y="322" width="28" height="58" rx="6" fill="#3b82f6"/>
+  <rect x="948" y="322" width="12" height="58" fill="#3b82f6"/>
+  <text x="946" y="356" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S4</text>
+  <text x="1032" y="344" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">Cross-Reference</text>
+  <text x="1032" y="362" text-anchor="middle" font-size="11" fill="#94a3b8">recent 5 sources</text>
+  <rect x="68" y="394" width="198" height="58" rx="6" fill="#1c1917" stroke="#f97316" stroke-width="1.5"/>
+  <rect x="68" y="394" width="28" height="58" rx="6" fill="#f97316"/>
+  <rect x="84" y="394" width="12" height="58" fill="#f97316"/>
+  <text x="82" y="428" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S5</text>
+  <text x="168" y="416" text-anchor="middle" font-size="12" font-weight="700" fill="#f97316">Write sources/</text>
+  <text x="168" y="434" text-anchor="middle" font-size="11" fill="#94a3b8">source page</text>
+  <rect x="284" y="394" width="198" height="58" rx="6" fill="#1c1917" stroke="#f97316" stroke-width="1.5"/>
+  <rect x="284" y="394" width="28" height="58" rx="6" fill="#f97316"/>
+  <rect x="300" y="394" width="12" height="58" fill="#f97316"/>
+  <text x="298" y="428" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S6</text>
+  <text x="384" y="416" text-anchor="middle" font-size="12" font-weight="700" fill="#f97316">Update index.md</text>
+  <text x="384" y="434" text-anchor="middle" font-size="11" fill="#94a3b8">topic sections</text>
+  <rect x="500" y="394" width="198" height="58" rx="6" fill="#2d1b4e" stroke="#a855f7" stroke-width="1.5"/>
+  <rect x="500" y="394" width="28" height="58" rx="6" fill="#a855f7"/>
+  <rect x="516" y="394" width="12" height="58" fill="#a855f7"/>
+  <text x="514" y="428" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S7</text>
+  <text x="600" y="416" text-anchor="middle" font-size="12" font-weight="700" fill="#a855f7">Update overview.md</text>
+  <text x="600" y="434" text-anchor="middle" font-size="11" fill="#94a3b8">living synthesis</text>
+  <rect x="716" y="394" width="198" height="58" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="716" y="394" width="28" height="58" rx="6" fill="#10b981"/>
+  <rect x="732" y="394" width="12" height="58" fill="#10b981"/>
+  <text x="730" y="428" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S8</text>
+  <text x="816" y="416" text-anchor="middle" font-size="12" font-weight="700" fill="#10b981">Update entities/</text>
+  <text x="816" y="434" text-anchor="middle" font-size="11" fill="#94a3b8">people/companies</text>
+  <rect x="932" y="394" width="198" height="58" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="932" y="394" width="28" height="58" rx="6" fill="#10b981"/>
+  <rect x="948" y="394" width="12" height="58" fill="#10b981"/>
+  <text x="946" y="428" text-anchor="middle" font-size="11" font-weight="700" fill="#0f0f1a">S9</text>
+  <text x="1032" y="416" text-anchor="middle" font-size="12" font-weight="700" fill="#10b981">Update concepts/</text>
+  <text x="1032" y="434" text-anchor="middle" font-size="11" fill="#94a3b8">frameworks/methods</text>
+  <line x1="266" y1="351" x2="284" y2="351" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <line x1="482" y1="351" x2="500" y2="351" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <line x1="698" y1="351" x2="716" y2="351" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <line x1="914" y1="351" x2="932" y2="351" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <path d="M 1031,380 L 1031,388 L 167,388 L 167,394" stroke="#ea580c" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <line x1="266" y1="423" x2="284" y2="423" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <line x1="482" y1="423" x2="500" y2="423" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <line x1="698" y1="423" x2="716" y2="423" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <line x1="914" y1="423" x2="932" y2="423" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <rect x="68" y="466" width="1064" height="48" rx="6" fill="#1a0000" stroke="#ef4444" stroke-width="2"/>
+  <rect x="68" y="466" width="32" height="48" rx="6" fill="#ef4444"/>
+  <rect x="88" y="466" width="12" height="48" fill="#ef4444"/>
+  <text x="84" y="496" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">S10</text>
+  <text x="468" y="485" text-anchor="middle" font-size="13" font-weight="700" fill="#ef4444">Mark Contradictions + Append Log + Output Summary</text>
+  <text x="468" y="503" text-anchor="middle" font-size="11" fill="#94a3b8">Contradictions section  |  wiki/log.md append-only  |  created/updated pages stats</text>
+  <line x1="599" y1="452" x2="599" y2="466" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+  <line x1="513" y1="268" x2="513" y2="290" stroke="#f97316" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <!-- STORAGE LAYER -->
+  <rect x="55" y="605" width="1090" height="160" rx="8" fill="#0a0a18" stroke="#334155" stroke-width="1"/>
+  <text x="68" y="623" font-size="10" fill="#475569" font-weight="700" letter-spacing="2">WIKI ROOT FILE SYSTEM</text>
+  <rect x="68" y="630" width="112" height="72" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="124" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#ea580c">raw/</text>
+  <text x="124" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">raw docs</text>
+  <text x="124" y="682" text-anchor="middle" font-size="10" fill="#94a3b8">(immutable)</text>
+  <rect x="190" y="630" width="112" height="72" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="246" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#3b82f6">wiki/index.md</text>
+  <text x="246" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">topic directory</text>
+  <rect x="312" y="630" width="112" height="72" rx="6" fill="#1e1b4b" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="368" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#a855f7">wiki/overview.md</text>
+  <text x="368" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">living synthesis</text>
+  <rect x="434" y="630" width="112" height="72" rx="6" fill="#1a0a00" stroke="#eab308" stroke-width="1.5"/>
+  <text x="490" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#eab308">wiki/log.md</text>
+  <text x="490" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">audit log</text>
+  <text x="490" y="682" text-anchor="middle" font-size="10" fill="#94a3b8">(append-only)</text>
+  <rect x="556" y="630" width="112" height="72" rx="6" fill="#1e3a5f" stroke="#4A90D9" stroke-width="1.5"/>
+  <text x="612" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#4A90D9">sources/</text>
+  <text x="612" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">source summaries</text>
+  <text x="612" y="682" text-anchor="middle" font-size="10" fill="#94a3b8">[blue·source]</text>
+  <rect x="678" y="630" width="112" height="72" rx="6" fill="#1c1917" stroke="#E8A838" stroke-width="1.5"/>
+  <text x="734" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#E8A838">entities/</text>
+  <text x="734" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">people/companies</text>
+  <text x="734" y="682" text-anchor="middle" font-size="10" fill="#94a3b8">[orange·entity]</text>
+  <rect x="800" y="630" width="112" height="72" rx="6" fill="#052e16" stroke="#5BA85A" stroke-width="1.5"/>
+  <text x="856" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#5BA85A">concepts/</text>
+  <text x="856" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">frameworks</text>
+  <text x="856" y="682" text-anchor="middle" font-size="10" fill="#94a3b8">[green·concept]</text>
+  <rect x="922" y="630" width="112" height="72" rx="6" fill="#1e1b4b" stroke="#9B59B6" stroke-width="1.5"/>
+  <text x="978" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#9B59B6">syntheses/</text>
+  <text x="978" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">query archive</text>
+  <text x="978" y="682" text-anchor="middle" font-size="10" fill="#94a3b8">[purple·synthesis]</text>
+  <rect x="1044" y="630" width="112" height="72" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+  <text x="1100" y="648" text-anchor="middle" font-size="11" font-weight="700" fill="#10b981">graph/</text>
+  <text x="1100" y="666" text-anchor="middle" font-size="10" fill="#94a3b8">graph.json</text>
+  <text x="1100" y="682" text-anchor="middle" font-size="10" fill="#94a3b8">graph.html</text>
+  <line x1="600" y1="514" x2="600" y2="604" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-gray)"/>
+  <!-- OUTPUT LAYER -->
+  <rect x="55" y="778" width="1090" height="80" rx="6" fill="#0a0a18" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="68" y="795" font-size="10" fill="#475569" font-weight="700" letter-spacing="2">OUTPUTS</text>
+  <rect x="70" y="802" width="246" height="46" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+  <text x="193" y="821" text-anchor="middle" font-size="12" font-weight="700" fill="#10b981">wiki-query</text>
+  <text x="193" y="839" text-anchor="middle" font-size="11" fill="#94a3b8">synthesized answer + Citations</text>
+  <rect x="340" y="802" width="246" height="46" rx="6" fill="#1a0a00" stroke="#eab308" stroke-width="1.5"/>
+  <text x="463" y="821" text-anchor="middle" font-size="12" font-weight="700" fill="#eab308">wiki-lint</text>
+  <text x="463" y="839" text-anchor="middle" font-size="11" fill="#94a3b8">Lint report (orphan/broken/conflict)</text>
+  <rect x="610" y="802" width="246" height="46" rx="6" fill="#1e1b4b" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="733" y="821" text-anchor="middle" font-size="12" font-weight="700" fill="#a855f7">wiki-graph</text>
+  <text x="733" y="839" text-anchor="middle" font-size="11" fill="#94a3b8">graph.html (vis.js interactive)</text>
+  <rect x="880" y="802" width="246" height="46" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="1003" y="821" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">wiki/overview.md</text>
+  <text x="1003" y="839" text-anchor="middle" font-size="11" fill="#94a3b8">Living Synthesis (human readable)</text>
+  <line x1="193" y1="702" x2="193" y2="800" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <line x1="463" y1="702" x2="463" y2="800" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <line x1="733" y1="702" x2="733" y2="800" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+  <line x1="1003" y1="702" x2="1003" y2="800" stroke="#334155" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-gray)"/>
+</svg>
