@@ -1,4 +1,4 @@
-# LLM Wiki
+# LLM Wiki Page
 
 A clean, zero-backend wiki for large language model knowledge. Drop Markdown files in, get a fully-featured knowledge site out — no database, no CMS, no server required.
 
